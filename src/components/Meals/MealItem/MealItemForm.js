@@ -9,7 +9,7 @@ const MealItemForm = (props) => {
  const submitHandler = event => {
   event.preventDefault();
   const enteredAmount = amountInputRef.current.value;
-  const enteredAmountNumber=  +enteredAmount;
+  const enteredAmountNumber =  +enteredAmount;
 
   if(enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5){
     setAmountIsValid(false);
@@ -20,7 +20,7 @@ const MealItemForm = (props) => {
  };
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={submitHandler}>
        <Input 
        ref={amountInputRef}
        label="Amount"
@@ -33,7 +33,7 @@ const MealItemForm = (props) => {
         defaultValue: '1'
        }}/>
        {/* //These all are built in attributes for iinput elements */}
-       <button onClick={submitHandler}>+ Add</button>
+       <button>+ Add</button>
        {!amountIsValid && <p>Please enter a valid amount (1-5).</p> }
     </form>
   )
