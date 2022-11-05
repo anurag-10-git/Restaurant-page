@@ -11,7 +11,7 @@ const Header = (props) => {
             <HeaderCartButton/>
         </header>
         <div className={classes['main-image']}>
-            <img src={mealsImage} alt="table full of food"/>
+            <img src={mealsImage} alt="table full of foods"/>
             </div>
     </React.Fragment>
   )
