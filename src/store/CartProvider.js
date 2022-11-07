@@ -8,11 +8,12 @@ const defaultCartState = {
 
 const cartReducer = (state, action) =>{
   if(action.type === 'ADD'){
-    const updateditems = state.items.concat(action.item);{/*returns a new array*/}
-    const updatedTotalAmount = state.totalAmonut + action.item.price * action.item.amount;
+    const updatedItems = state.items.concat(action.item);{/*returns a new array*/}
+    const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
+    
     return {
-      items: updateditems,
-      totalAmonut: updatedTotalAmount
+      items: updatedItems,
+      totalAmount: updatedTotalAmount
     }
   }
   return defaultCartState;
@@ -37,9 +38,9 @@ const CartProvider = props => {
   }
 //  addItem and removeItem are just pointer pointing to the handlers
 
-  return <CartContext.Provider value={cartContext}>
+  return (<CartContext.Provider value={cartContext}>
     {props.children}
-  </CartContext.Provider>
+  </CartContext.Provider>);
 };
 
 export default CartProvider;
